@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript .call and .apply</title>
+</head>
+
+<body>
+    <div class="hangouts">
+        <p>I'd like to offer an explanation of Function.prototype.call (and its sibling Function.prototype.apply) which all
+            JavaScript functions inherit. [function].call enables you to invoke any function as if it was a method of an
+            object.</p>
+        <p>Methods can use the "this" pronoun to reference their parent object. Take an example of a washing machine object;
+            it would likely possess common methods like fill, agitate and drain, properties like waterLevel, currentCycle,
+            and hotValve and coldValve (which are themselves objects with their own properties and methods). The fill method
+            might go something like: this.coldValve.open(); while(this.waterLevel
+            &lt; 30) {wait(1)} this.coldValve.close();</p>
+                <p>Now let's take an example of a suspicious washing machine that suddenly appeared in a public park. It could
+                    be explosive! So the bomb squad is called and when they arrive, they want to "apply" a general function
+                    of safelyDetonate to the washing machine, and invoke it as a method of the washing machine.</p>
+                <p>safelyDetonate might go something like this: this.charge = new Explosive(); this.charge.kilograms = this.mass
+                    / 100; this.charge.placement.x = this.centerOfMass.x; this.charge.placement.y = this.centerOfMass.y -
+                    20; this.charge.detonate();</p>
+                <p>To apply the safelyDetonate function as a method to *any* object, we simply call (or apply it) as safelyDetonate.call(washingMachine)
+                    and safelyDetonate, written with references to a (at the time it was written) non-existent "this," will
+                    suddenly *know* what "this" is at the time it is invoked, thanks to call (or apply).</p>
+                <p>safelyDetonate.call(backpack) will work next week when someone leaves a suspicious backpack on a street corner.</p>
+                <p>The only difference between Function.prototype.call and Function.prototype.apply is how arguments are passed</p>
+                <p>Let's say safelyDetonate expects a delay (in seconds) as its first argument; you can pass that argument as
+                    safelyDetonate.call(backpack, 90) or safelyDetonate.apply(backpack, [90])</p>
+                <p>Function.prototype.call expects a comma-separated list of arguments after the target object, where Function.prototype.apply
+                    expects a single array with as many arguments as you like.</p>
+                <p>JavaScript has been taunted (perhaps justifiably) for having two such similar ways to do the same thing.
+                    I myself typically use Function.prototype.call as it is one letter shorter than its sibling, and I can
+                    just pass arguments without first constructing an array.</p>
+                <p>Hopefully that makes sense.</p>
+    </div>
+</body>
+
+</html>

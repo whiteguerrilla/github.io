@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Identifying Network Resources</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,700,700i" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            margin: auto;
+            width: 50vw;
+            max-width: 40em;
+            min-width: 14em;
+            font-family: 'Open Sans', sans-serif;
+            font-size: calc(2vmin + 2vh);
+        }
+
+        header {
+            height: 40vmin;
+            background: no-repeat center/cover url(img/resources.jpg);
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <section id="before">
+            <h1>What's in a Name?</h1>
+            <p>
+                Identifying network resources has always been awkward. While they obviously must be unique, an identifier should connote
+                meaning, shouldn't it? How should we identify our servers? Our printers? Our workstations? Many small organizations
+                innocently opt to identify workstations by the employee to which they were originally assigned, with perhaps
+                the operating system or manufacturer woven in for good measure. Printers are often identified by the department
+                or user to which they are assigned, and servers for the role they were originally intended.
+            </p>
+            <p>
+                And this seems to work quite well, for a while. IT support personnel are able to identify a malfunctioning network interface
+                card on the network simply by its network identifier.
+            </p>
+            <p>
+                But changing network resource identifiers is difficult, and after Bill is long gone, Sharon uses Bill's Windows Vista computer.
+                And now there are two Mikes, and they both use Windows 10! The identification system didn't account for these
+                changes, and now things are just confusing. The IT department, no longer able to trust the accuracy of their
+                own network resource identifiers, quietly builds an asset management system which lets them associate several
+                helpful attributes with any network resource, oblivious to the users who continue to see meaningless identifiers
+                on the network (and have begun to wonder if their IT department really knows what they are doing).
+            </p>
+            <p>
+                One day an important printer fails, and the decision is made to relocate an adjacent department's printer to a central location
+                so the two departments can share it. As a result, both Finance and Sales are now printing their documents
+                to the same relocated Sales Printer. After a while, everyone gets used to this, but new employees are baffled
+                as to why it was not simply renamed to something more generic. The reason? Of course! An old program still
+                references the sales printer by its original network identifier "Sales LaserJet 5si" for its automated reports,
+                and no one still working at the company knows how to modify it.
+            </p>
+            <p>
+                Several months later, the mail server is end-of-life. The original email server was given the simple identifier "mail" and
+                the current email server "mail5," so the new server will be identified as "mail6." The two servers will coexist
+                on the network while mailboxes are migrated from mail5 to mail6, and then mail5 will be decommissioned and
+                mail6 will be activated. But when that happens, the new systems administrator fails to realize that the
+                <strong>credit card processing software</strong> was also installed on mail5 (the silly lad assumed mail5 was strictly
+                for mail) and that goes down until panicked users realize and report the outage. Now the business is in a
+                pickle! If the old mail5 server (decommissioned for several hours now) rejoins the network, users will connect
+                to it instead of mail6, and mailboxes will likely become corrupt. After several hours, the credit card processing
+                software is reinstalled on the voicemail server "voice2" and service is restored.
+            </p>
+            <p>
+                Unfortunately, things only get worse as time goes on.
+            </p>
+            <p>
+                When one takes a step back and looks at the situation, the problem is clear: network resource identifiers must be unique,
+                <i>but they do
+                    <strong>not</strong> need to connote any sort of meaning!</i> As a matter of fact,
+                <strong>they should connote absolutely no meaning at all, to anyone!!!</strong> Like social security numbers, network
+                resource identifiers are simply unique identifiers.
+                <u>Nothing more.</u>
+            </p>
+            <p>
+                In addition to our social security numbers, we have more memorable names we give to our friends. These names may or may not
+                be unique, but at least they are memorable.
+            </p>
+            <p>
+                That's great for us, but how do users find network resources if not by their unique identifier? Fortunately, there is a technology
+                that permits network resources to be associated with more memorable names too. It is the same technology
+                that transforms 172.217.0.36 into the friendlier "www.google.com" and it is called DNS. What's more, DNS
+                permits
+                <i>multiple</i> friendly names for the same resource. In the tale above, if DNS were used to assign the sales
+                and finance printers their names, the sales printer could have been given the moniker of simply "Sales Printer,"
+                and when it was relocated, the alias of "Finance Printer" for as long as it served that additional role.
+            </p>
+            <p>
+                DNS is just a database, so changing DNS names is easy. And if the fateful end-of-life mail server had been named something
+                less meaningful, with DNS used to assign it a moniker for each role it served, that system administrator
+                would have known from day one that it was also responsible for the other role. With DNS, it is trivial to
+                assign an additional name to a network resource, or move names from an old resource to a new one (keeping
+                users and legacy software happy).
+            </p>
+            <p>
+                So roles and functions should reside in a database, and network resources should therefore be uniquely assigned something
+                short and meaningless to prevent anyone from assuming its role or function. A pseudo-random four-character
+                name is sufficient for this purpose, as it affords 32
+                <sup>4</sup> (omitting the profanity enablers A,I,O and U) unique network resources, which is plenty for the future
+                growth of most companies.
+            </p>
+            <p>
+                Peace, brother.
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>
