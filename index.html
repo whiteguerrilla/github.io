@@ -133,9 +133,25 @@
         }
 
         footer section div {
-            width: 50vmin;
-            height: 15vmin;
+            width: 25em;
+            height: 7em;
             background: no-repeat center / 200% url('http://www.smartis.si/wp-content/uploads/2017/09/reactiveConf-865x487.png');
+        }
+
+        @media (max-width: 800px) {
+            header h2 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                align-items: center;
+                justify-content: center;
+            }
+            header h1 {
+                display: none;
+            }
         }
     </style>
 </head>
